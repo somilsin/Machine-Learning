@@ -1,0 +1,3 @@
+# I use NumPy for array operations and SciPy for stable activation functions.
+numpy>=1.24
+scipy>=1.10

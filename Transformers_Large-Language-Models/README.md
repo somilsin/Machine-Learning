@@ -1,4 +1,14 @@
-# My sequence models and language model experiments
+<div align="center">
+
+# 🤖 Transformers and Large Language Models
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge) ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge) ![Sequence Models](https://img.shields.io/badge/Sequence%20Models-6E40C9?style=for-the-badge)
+
+**By [Somil Singh](https://github.com/somilsin)**
+
+</div>
+
+[← Machine Learning](../README.md)
 
 I use this repository to study sequence prediction and language model adaptation. The first notebook learns ABC music notation with an LSTM. The second adapts a pretrained language model with LoRA and includes an optional style judge.
 
@@ -12,8 +22,8 @@ These notebooks are my working adaptations of MIT Introduction to Deep Learning 
 ## How I run it
 
 ```bash
-git clone https://github.com/somilsin/Transformers_Large-Language-Models.git
-cd Transformers_Large-Language-Models
+git clone https://github.com/somilsin/Machine-Learning.git
+cd Machine-Learning/Transformers_Large-Language-Models
 python -m pip install numpy scipy matplotlib music21 torch transformers datasets peft accelerate lion-pytorch tqdm opik seaborn pandas opencv-python tensorflow gym ipykernel nbformat
 python -m pip install "setuptools<81"
 python -m pip install mitdeeplearning --no-deps --no-build-isolation

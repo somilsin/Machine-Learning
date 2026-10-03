@@ -1,4 +1,14 @@
-# My deep learning and computer vision projects
+<div align="center">
+
+# 🧠 Deep Learning and Computer Vision
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge) ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge) ![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge)
+
+**By [Somil Singh](https://github.com/somilsin)**
+
+</div>
+
+[← Machine Learning](../README.md)
 
 I use this repository to understand how a neural network learns from images. I start with handwritten digits then explore face classification and adaptive sampling. I also keep a small NumPy engine where the forward passes and gradients are visible in the code.
 
@@ -13,8 +23,8 @@ The vision notebooks are my adaptations of MIT Introduction to Deep Learning exe
 ## How I run it
 
 ```bash
-git clone https://github.com/somilsin/Deep-Learning_Computer-Vision.git
-cd Deep-Learning_Computer-Vision
+git clone https://github.com/somilsin/Machine-Learning.git
+cd Machine-Learning/Deep-Learning_Computer-Vision
 python -m pip install numpy scipy matplotlib torch torchvision torchsummary tqdm h5py opencv-python tensorflow gym opik transformers datasets peft lion-pytorch ipykernel nbformat
 python -m pip install "setuptools<81"
 python -m pip install mitdeeplearning --no-deps --no-build-isolation

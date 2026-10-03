@@ -1,4 +1,14 @@
-# TensorTonic Solutions
+<div align="center">
+
+# 📐 TensorTonic Solutions
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge) ![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge) ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-6E40C9?style=for-the-badge)
+
+**By [Somil Singh](https://github.com/somilsin)**
+
+</div>
+
+[← Machine Learning](../README.md)
 
 Welcome to my TensorTonic solutions repository!
 
@@ -8,7 +18,7 @@ Here you'll find my solutions to various machine learning and deep learning prob
 
 TensorTonic is a platform where you can implement core algorithms of Machine Learning from scratch.
 
-This repository contains my personal solutions to these problems, automatically synchronized from the platform.
+This repository contains my personal solutions to these problems, synchronized from the platform in the original repository. This category contains the migrated snapshot. The original platform sync remains available at [TensorTonic Solutions](https://github.com/somilsin/TensorTonic-Solutions).
 
 <!-- tensortonic:start -->
 # Somil Singh's TensorTonic Solutions

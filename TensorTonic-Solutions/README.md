@@ -18,7 +18,7 @@ Here you'll find my solutions to various machine learning and deep learning prob
 
 TensorTonic is a platform where you can implement core algorithms of Machine Learning from scratch.
 
-This repository contains my personal solutions to these problems, synchronized from the platform in the original repository. This category contains the migrated snapshot. The original platform sync remains available at [TensorTonic Solutions](https://github.com/somilsin/TensorTonic-Solutions).
+This folder contains my personal solutions to these problems. I moved the source into this Machine Learning category. New platform sync needs to target this repository and the TensorTonic-Solutions folder.
 
 <!-- tensortonic:start -->
 # Somil Singh's TensorTonic Solutions

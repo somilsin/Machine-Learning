@@ -1,49 +1,118 @@
+<!-- Shared decorative layout inspired by my original vision README and profile README. -->
 <div align="center">
 
-# 🧠 Machine Learning
+<h1>🧠 Machine Learning</h1>
+<h3><code>Understand the model. Inspect the output.</code></h3>
 
-### My experiments with models that learn
+<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=900&lines=Understand%20the%20model.%20Inspect%20the%20output.;Learn+it.+Build+it.+Explain+it." alt="Understand the model. Inspect the output." />
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+<p>
+<img src="https://img.shields.io/badge/Machine%20Learning-6E40C9?style=for-the-badge" alt="Machine Learning" />
+<img src="https://img.shields.io/badge/Maintained%20by%20Somil%20Singh-58A6FF?style=for-the-badge&logo=github&logoColor=white" alt="Maintained by Somil Singh" />
 
-**Written and maintained by [Somil Singh](https://github.com/somilsin)**
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge" alt="Python" />
+<img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge" alt="PyTorch" />
+<img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge" alt="TensorFlow" />
+</p>
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/somil-singh)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:somils@andrew.cmu.edu)
+
+[Open this project](https://github.com/somilsin/Machine-Learning) · [My GitHub](https://github.com/somilsin) · [My portfolio](https://somilsin.github.io/Artificial-Intelligence/portfolio/)
 
 </div>
 
-## 🔎 What I explore here
+<br>
 
-I use these projects to understand what happens between an input and a prediction. I work through image classification and sequence generation then inspect the gradients and outputs that explain how each model learns.
+## 📖 About This Repository
 
-## 📚 Explore my projects
+---
 
-| Project | What I work through |
-| --- | --- |
-| [Deep Learning and Computer Vision](https://github.com/somilsin/Machine-Learning/tree/main/Deep-Learning_Computer-Vision) | Handwritten digit classification and face classification with adaptive sampling plus a NumPy neural network engine with manual gradients. |
-| [Transformers and Large Language Models](https://github.com/somilsin/Machine-Learning/tree/main/Transformers_Large-Language-Models) | Music notation generation and language model adaptation using Low Rank Adaptation. |
-| [TensorTonic Solutions](https://github.com/somilsin/Machine-Learning/tree/main/TensorTonic-Solutions) | Small implementations of probability and vector operations with the problem statements alongside my code. |
+I keep my deep learning notebooks, sequence modelling experiments and mathematical practice here. The notes connect the implementations to actual saved results.
 
-## 📊 Outputs I have recorded
+<br>
 
-The digit classifier notebook contains a full run with 96.90% test accuracy for the dense model and 97.38% for the convolutional model. The face notebook contains two training epochs for each model and saved group probability plots.
+## 🚀 Key Implementations
 
-The music and language notebooks contain clearly labelled smaller runs that fit my laptop GPU. Their generated text and music previews are saved with the selected settings. I keep the course source credit alongside my adaptations.
+---
 
-## 📝 My notes
+* Deep Learning and Computer Vision: Dense and convolutional digit classifiers.
+* Transformers and Large Language Models: Music generation with a recurrent sequence model.
+* TensorTonic Machine Learning Solutions: Vector operations and matrix transpose.
 
-I look at the experiment settings before comparing scores. A small execution proves that the pipeline runs but it does not establish convergence. I also separate training accuracy from test accuracy so the result says exactly what I measured.
+<br>
 
-For the NumPy engine I check the gradients numerically before trusting the training curve. That makes the implementation easier for me to reason about when I change a layer.
+## 🎓 Project Guide
+
+---
+
+| Project | What I keep here |
+| :--- | :--- |
+| [Deep Learning and Computer Vision](Deep-Learning_Computer-Vision/README.md) | I study how neural networks learn from images through digit classification and face classification. I also maintain a NumPy engine where the layers and gradients are visible. |
+| [Transformers and Large Language Models](Transformers_Large-Language-Models/README.md) | I study sequence prediction through music notation generation and language model adaptation. I use these notebooks to understand the training choices and inspect the generated outputs. |
+| [TensorTonic Machine Learning Solutions](TensorTonic-Solutions/README.md) | I practice core machine learning mathematics through small Python implementations. I keep the problem notes beside each solution so I can revisit the reasoning. |
+
+<br>
+
+## 🛠️ Tech Stack
+
+---
+
+<p align="center">
+<img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow&theme=dark" alt="Python, PyTorch, TensorFlow" />
+</p>
+
+`Python` · `PyTorch` · `TensorFlow`
+
+<br>
+
+## ⚙️ Getting Started
+
+---
+
+```bash
+git clone https://github.com/somilsin/Machine-Learning.git
+cd Machine-Learning
+```
+
+I open the README in the project folder I want to use. Each project has its own dependencies and entry points.
+
+<br>
+
+## 📝 My Notes and Results
+
+---
+
+I keep the actual notebook outputs with the experiments. The vision classifier reached 97.38% independent test accuracy. The face metric of 99.76% comes from a sampled training batch. Music and language adaptation use clearly labelled smaller runs on my 4 GB GPU.
+
+<br>
+
+## 📚 References and Credit
+
+---
+
+I retain course credit and original licenses in the individual project folders. Reorganizing the source does not change its authorship or license.
+
+<br>
+
+## 🗂️ Explore My Other Work
+
+---
+
+| [Artificial Intelligence](https://github.com/somilsin/Artificial-Intelligence) | [Machine Learning](https://github.com/somilsin/Machine-Learning) | [Computer Vision](https://github.com/somilsin/Computer-Vision) | [Learning Archive](https://github.com/somilsin/Learning-Archive) |
+| :---: | :---: | :---: | :---: |
+
+<br>
 
 <div align="center">
 
-**Explore, run and inspect.**
+### Get In Touch
 
-[My GitHub profile](https://github.com/somilsin)
+I share my learning and projects here. Connect with me on [LinkedIn](https://linkedin.com/in/somil-singh) or explore [my portfolio](https://somilsin.github.io/Artificial-Intelligence/portfolio/).
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/somil-singh)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:somils@andrew.cmu.edu)
+
+*Thanks for stopping by!*
 
 </div>
-
-## 📍 Working with these folders
-
-Each project keeps its own files and source credit. I open a terminal inside its project folder before running its commands so relative data paths resolve correctly.

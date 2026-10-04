@@ -1,10 +1,56 @@
-# My NumPy neural network engine
+<!-- Shared decorative layout inspired by my original vision README and profile README. -->
+<div align="center">
+
+<h1>🧠 NumPy Neural Network Engine</h1>
+<h3><code>Forward passes, gradients and optimization from first principles</code></h3>
+
+<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=900&lines=Forward%20passes%2C%20gradients%20and%20optimization%20from%20first%20principles;Learn+it.+Build+it.+Explain+it." alt="Forward passes, gradients and optimization from first principles" />
+
+<p>
+<img src="https://img.shields.io/badge/Machine%20Learning-6E40C9?style=for-the-badge" alt="Machine Learning" />
+<img src="https://img.shields.io/badge/Maintained%20by%20Somil%20Singh-58A6FF?style=for-the-badge&logo=github&logoColor=white" alt="Maintained by Somil Singh" />
+
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge" alt="Python" />
+</p>
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/somil-singh)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:somils@andrew.cmu.edu)
+
+[Open this project](https://github.com/somilsin/Machine-Learning/tree/main/Deep-Learning_Computer-Vision/Neural-Network-Engine-From-Scratch) · [My GitHub](https://github.com/somilsin) · [My portfolio](https://somilsin.github.io/Artificial-Intelligence/portfolio/)
+
+</div>
+
+<br>
+
+## 📖 About This Repository
+
+---
+
+I implement a small neural network engine with NumPy and SciPy. The layers calculate their forward and backward passes directly so I can inspect every gradient.
+
+<br>
+
+## 🚀 Key Implementations
+
+---
+
+* Linear layers and activations with manual gradients
+* Loss functions and stochastic gradient descent with momentum
+* Batch normalization and multilayer perceptron examples
+
+<br>
+
+## 🎓 Project Guide
+
+---
+
+### Overview
 
 I built this small engine to make the calculations inside a neural network visible. Each layer stores the values needed by its backward pass. I can follow the gradient from the loss through the model and into the SGD update.
 
 I use NumPy for array operations and SciPy for the error function and stable sigmoid. The engine does not use an automatic differentiation framework.
 
-## What I implemented
+### What I implemented
 
 1. Linear layers compute a batch matrix product and its input gradient plus weight and bias gradients.
 2. Identity and sigmoid then tanh and ReLU provide simple activations. GELU and Swish add smooth alternatives. Swish also exposes its gate gradient.
@@ -14,7 +60,37 @@ I use NumPy for array operations and SciPy for the error function and stable sig
 6. SGD selects layers that have weights and biases then updates them with optional momentum.
 7. MLP0 and MLP1 then MLP4 show models with different depths. I initialise weights randomly so the ReLU networks can start learning.
 
-## A complete example I can run
+### My gradient checks
+
+I compared the analytical gradients with central finite differences for every activation and both losses plus the linear layer and BatchNorm1d. The largest absolute difference was below 1.1e-10. I also checked weight updates for all three model depths and the second momentum update.
+
+For logits of positive and negative 1,000 the cross entropy remained finite at 2,000. That check matters because softmax probabilities can underflow even when the expected loss is finite.
+
+### What I would extend next
+
+The current SGD implementation updates linear layers. It does not automatically update BatchNorm scale and shift or the Swish gate. Those gradients are available for inspection but a model that learns those parameters needs an optimizer extension.
+
+The public MLP examples retain ReLU at the output for compatibility with their original design. For a general classification model I would normally use an unrestricted final linear layer for logits.
+
+<br>
+
+## 🛠️ Tech Stack
+
+---
+
+<p align="center">
+<img src="https://skillicons.dev/icons?i=python&theme=dark" alt="Python" />
+</p>
+
+`Python`
+
+<br>
+
+## ⚙️ Getting Started
+
+---
+
+### A complete example I can run
 
 From this directory I install the dependencies and run the example below:
 
@@ -57,14 +133,42 @@ Accuracy: 100%
 
 This is a tiny training example with evaluation on the same four samples. It checks that the engine learns rather than measuring generalisation.
 
-## My gradient checks
+<br>
 
-I compared the analytical gradients with central finite differences for every activation and both losses plus the linear layer and BatchNorm1d. The largest absolute difference was below 1.1e-10. I also checked weight updates for all three model depths and the second momentum update.
+## 📝 My Notes and Results
 
-For logits of positive and negative 1,000 the cross entropy remained finite at 2,000. That check matters because softmax probabilities can underflow even when the expected loss is finite.
+---
 
-## What I would extend next
+The finite difference gradient check reached a maximum error of approximately 1.1 × 10⁻¹⁰. The four sample demonstration reached 100% accuracy with its loss decreasing from 0.468641 to 0.000260.
 
-The current SGD implementation updates linear layers. It does not automatically update BatchNorm scale and shift or the Swish gate. Those gradients are available for inspection but a model that learns those parameters needs an optimizer extension.
+<br>
 
-The public MLP examples retain ReLU at the output for compatibility with their original design. For a general classification model I would normally use an unrestricted final linear layer for logits.
+## 📚 References and Credit
+
+---
+
+I retain the existing source context. This implementation calculates gradients directly without an automatic differentiation framework.
+
+<br>
+
+## 🗂️ Explore My Other Work
+
+---
+
+| [Artificial Intelligence](https://github.com/somilsin/Artificial-Intelligence) | [Machine Learning](https://github.com/somilsin/Machine-Learning) | [Computer Vision](https://github.com/somilsin/Computer-Vision) | [Learning Archive](https://github.com/somilsin/Learning-Archive) |
+| :---: | :---: | :---: | :---: |
+
+<br>
+
+<div align="center">
+
+### Get In Touch
+
+I share my learning and projects here. Connect with me on [LinkedIn](https://linkedin.com/in/somil-singh) or explore [my portfolio](https://somilsin.github.io/Artificial-Intelligence/portfolio/).
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/somil-singh)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:somils@andrew.cmu.edu)
+
+*Thanks for stopping by!*
+
+</div>

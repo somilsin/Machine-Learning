@@ -42,6 +42,7 @@ I study how neural networks learn from images through digit classification and f
 * Dense and convolutional digit classifiers
 * Face classification with adaptive sampling
 * A NumPy neural network engine with manual gradients
+* A variational autoencoder that generates new digits from a 2D latent space
 
 <br>
 
@@ -60,6 +61,7 @@ The vision notebooks are my adaptations of MIT Introduction to Deep Learning exe
 1. [MNIST classification](1_MNIST_Digit_Classifications.ipynb) compares a dense baseline with a CNN. I inspect image shapes then train both models and display their predictions.
 2. [Facial detection and debiasing](2_Facial_Detection_Debiasing.ipynb) compares a standard CNN with a DB VAE. I keep the distinction between mean predicted probability and classification accuracy explicit.
 3. [My NumPy neural network engine](Neural-Network-Engine-From-Scratch/README.md) contains linear layers and activations with manual gradients plus losses and SGD with momentum.
+4. [My variational autoencoder from scratch](Variational-Autoencoder-From-Scratch/README.md) is the companion code for my VAE lecture on YouTube. I train it on binarized digits, then sample new digits from the prior and decode the whole 2D latent space.
 
 <br>
 
@@ -97,6 +99,13 @@ For the NumPy engine alone I install the existing dependency file:
 python -m pip install -r Neural-Network-Engine-From-Scratch/requirements.txt
 ```
 
+For the variational autoencoder I use its own dependency file and script:
+
+```bash
+python -m pip install -r Variational-Autoencoder-From-Scratch/requirements.txt
+python Variational-Autoencoder-From-Scratch/vae.py --epochs 10 --latent-dim 2
+```
+
 <br>
 
 ## 📝 My Notes and Results
@@ -119,6 +128,8 @@ The facial detection run retained two epochs for each model across the full cour
 
 The NumPy engine passed finite difference gradient checks and learned the four sample demonstration in its README. All displayed notebook outputs come from these executions.
 
+On 8 October 2026 I trained the variational autoencoder for 10 epochs on my laptop CPU in 2 minutes 16 seconds. It reached a test loss of 152.60 nats per image, made of 146.70 reconstruction and 5.90 KL. Its folder keeps the loss history and the generated figures.
+
 <br>
 
 ## 📚 References and Credit
@@ -128,6 +139,8 @@ The NumPy engine passed finite difference gradient checks and learned the four s
 ### Course reference
 
 The notebook exercises and helpers come from [MIT Introduction to Deep Learning](http://introtodeeplearning.com). The source credit is retained in the notebooks.
+
+The variational autoencoder follows Kingma and Welling's [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114). Its references are listed in its own README.
 
 <br>
 

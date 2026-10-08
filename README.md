@@ -39,7 +39,7 @@ I keep my deep learning notebooks, sequence modelling experiments and mathematic
 
 ---
 
-* Deep Learning and Computer Vision: Dense and convolutional digit classifiers.
+* Deep Learning and Computer Vision: Dense and convolutional digit classifiers, plus a variational autoencoder that generates new digits.
 * Transformers and Large Language Models: Music generation with a recurrent sequence model.
 * TensorTonic Machine Learning Solutions: Vector operations and matrix transpose.
 
@@ -51,7 +51,7 @@ I keep my deep learning notebooks, sequence modelling experiments and mathematic
 
 | Project | What I keep here |
 | :--- | :--- |
-| [Deep Learning and Computer Vision](Deep-Learning_Computer-Vision/README.md) | I study how neural networks learn from images through digit classification and face classification. I also maintain a NumPy engine where the layers and gradients are visible. |
+| [Deep Learning and Computer Vision](Deep-Learning_Computer-Vision/README.md) | I study how neural networks learn from images through digit classification and face classification. I also maintain a NumPy engine where the layers and gradients are visible, and a [variational autoencoder](Deep-Learning_Computer-Vision/Variational-Autoencoder-From-Scratch/README.md) that pairs with my VAE lecture on YouTube. |
 | [Transformers and Large Language Models](Transformers_Large-Language-Models/README.md) | I study sequence prediction through music notation generation and language model adaptation. I use these notebooks to understand the training choices and inspect the generated outputs. |
 | [TensorTonic Machine Learning Solutions](TensorTonic-Solutions/README.md) | I practice core machine learning mathematics through small Python implementations. I keep the problem notes beside each solution so I can revisit the reasoning. |
 
@@ -86,7 +86,7 @@ I open the README in the project folder I want to use. Each project has its own 
 
 ---
 
-I keep the actual notebook outputs with the experiments. The vision classifier reached 97.38% independent test accuracy. The face metric of 99.76% comes from a sampled training batch. Music and language adaptation use clearly labelled smaller runs on my 4 GB GPU.
+I keep the actual notebook outputs with the experiments. The vision classifier reached 97.38% independent test accuracy. The variational autoencoder reached a test loss of 152.60 nats per image after 10 CPU epochs. The face metric of 99.76% comes from a sampled training batch. Music and language adaptation use clearly labelled smaller runs on my 4 GB GPU.
 
 <br>
 

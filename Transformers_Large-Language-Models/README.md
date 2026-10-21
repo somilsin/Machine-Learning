@@ -41,6 +41,7 @@ I study sequence prediction through music notation generation and language model
 * Music generation with a recurrent sequence model
 * Language model adaptation with low rank adapters
 * Saved text and audio from clearly labelled local runs
+* RL post-training: an LLM judge turned into a reward for RLAIF (DPO and GRPO) plus classic RLHF with a reward model and a verifiable GSM8K reward
 
 <br>
 
@@ -58,6 +59,7 @@ These notebooks are my working adaptations of MIT Introduction to Deep Learning 
 
 1. [Music generation](1_Music_Generation.ipynb) covers character encoding and shifted sequence targets then LSTM training and generation. Generated ABC text is displayed directly.
 2. [Language model adaptation](2_LLM_Finetuning.ipynb) covers chat formatting and tokenization then LoRA training and held out evaluation using LiquidAI LFM2 with 1.2 billion parameters.
+3. [RL post-training](3_RL_Post_Training.ipynb) ([open in Colab](https://colab.research.google.com/github/somilsin/Machine-Learning/blob/main/Transformers_Large-Language-Models/3_RL_Post_Training.ipynb)) turns the style judge from the second notebook into a reward. It covers judge validation, judge-labelled DPO and online GRPO then classic RLHF on hh-rlhf with a Bradley-Terry reward model and GRPO against a GSM8K answer checker. The training loops are plain PyTorch in [rl-post-training](rl-post-training/README.md).
 
 <br>
 
@@ -112,6 +114,8 @@ On 3 October 2026 I executed both notebooks on an NVIDIA RTX 3050 Ti laptop GPU 
 For music I used a smaller local run with 600 updates and 256 hidden units. The recorded final batch loss was 1.1722. The notebook displays generated ABC text and audio previews parsed from that text.
 
 For language adaptation I used LiquidAI LFM2 350M with a context length of 256 tokens and 20 adapter updates for each style. There were 245,760 trainable parameters out of 354,729,728 total parameters. The final course Yoda text cross entropy loss was 3.97. The cell retains the course label loglikelihood but its calculation is cross entropy so I interpret it as a loss.
+
+The RL post-training scripts were tested on the same GPU with tiny settings. The notebook has no saved outputs yet because it has not been executed end to end on a T4.
 
 These smaller runs demonstrate execution rather than convergence at the full settings. Generated responses are saved in the notebook. External judge scoring and tracing were skipped because the service keys were not configured. No judge scores were invented.
 

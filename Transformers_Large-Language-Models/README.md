@@ -59,8 +59,7 @@ These notebooks are my working adaptations of MIT Introduction to Deep Learning 
 
 1. [Music generation](1_Music_Generation.ipynb) covers character encoding and shifted sequence targets then LSTM training and generation. Generated ABC text is displayed directly.
 2. [Language model adaptation](2_LLM_Finetuning.ipynb) covers chat formatting and tokenization then LoRA training and held out evaluation using LiquidAI LFM2 with 1.2 billion parameters.
-3. [RL post-training](3_RL_Post_Training.ipynb) ([open in Colab](https://colab.research.google.com/github/somilsin/Machine-Learning/blob/main/Transformers_Large-Language-Models/3_RL_Post_Training.ipynb)) turns the style judge from the second notebook into a reward. It covers judge validation, judge-labelled DPO and online GRPO then classic RLHF on hh-rlhf with a Bradley-Terry reward model and GRPO against a GSM8K answer checker. The notebook writes its own training code with `%%writefile` cells and the loops are plain PyTorch.
-
+3. [RL post-training](3_RL_Post_Training.ipynb) ([open in Colab](https://colab.research.google.com/github/somilsin/Machine-Learning/blob/main/Transformers_Large-Language-Models/3_RL_Post_Training.ipynb)) turns the style judge from the second notebook into a reward. It covers judge validation, judge-labelled DPO and online GRPO then classic RLHF on hh-rlhf with a Bradley-Terry reward model and GRPO against a GSM8K answer checker.
 <br>
 
 ## 🛠️ Tech Stack

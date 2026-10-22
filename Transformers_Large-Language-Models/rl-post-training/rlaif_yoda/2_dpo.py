@@ -1,7 +1,7 @@
-"""Stage 2a · offline RLAIF with DPO on the judge-labelled pairs.
+"""Stage 2a · offline RLAIF. DPO on the pairs my judge labelled.
 
 Policy = SFT model + a fresh LoRA. Reference = the same model with the LoRA
-switched off: no second copy of the weights is needed.
+switched off. That way I never hold a second copy of the weights.
 """
 import argparse
 import random
@@ -49,7 +49,7 @@ for epoch in range(args.epochs):
         P = [prompt_ids(tok, r["prompt"]) for r in b]
         W = [answer_ids(tok, r["prompt"], r["chosen"])[:args.max_len] for r in b]
         L = [answer_ids(tok, r["prompt"], r["rejected"])[:args.max_len] for r in b]
-        pol, ref = summed_logps(P + P, W + L)             # chosen and rejected in one pass
+        pol, ref = summed_logps(P + P, W + L)             # chosen and rejected in one forward pass
         n = len(b)
         loss, acc, margin = dpo_loss(pol[:n], pol[n:], ref[:n], ref[n:], args.beta)
         opt.zero_grad(set_to_none=True)

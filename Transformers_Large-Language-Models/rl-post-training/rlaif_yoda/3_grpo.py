@@ -1,4 +1,4 @@
-"""Stage 2b · online RLAIF with GRPO: the judge is the reward model, live.
+"""Stage 2b · online RLAIF. GRPO with my judge as the live reward model.
 
 Every step: 4 prompts x G samples -> judge scores -> group advantages ->
 one clipped policy-gradient update with a KL penalty to the SFT model.

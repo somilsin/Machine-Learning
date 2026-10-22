@@ -1,8 +1,8 @@
-"""Stage 4 · did RL help?
+"""Stage 4 · did RL actually help?
 
 --mode rm     SFT vs RLHF policy on held-out hh-rlhf prompts: reward-model score,
               win rate and length. A higher RM score with much longer answers
-              is the classic sign of reward hacking: read the samples.
+              is the classic sign of reward hacking. I read the samples.
 --mode gsm8k  greedy accuracy on held-out GSM8K questions for each model.
 """
 import argparse

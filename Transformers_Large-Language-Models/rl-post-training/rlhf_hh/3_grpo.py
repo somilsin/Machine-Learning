@@ -1,6 +1,6 @@
-"""Stage 3 · RL. Same GRPO loop, two reward sources.
+"""Stage 3 · RL. The same GRPO loop with two reward sources.
 
---reward rm     classic RLHF: the reward model trained on human preferences
+--reward rm     classic RLHF: my reward model trained on human preferences
 --reward gsm8k  verifiable reward: a rule checks the final number (R1-Zero style)
 """
 import argparse

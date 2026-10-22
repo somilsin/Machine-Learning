@@ -1,4 +1,4 @@
-"""Stage 1 · SFT: teach a base model the chat format on human-preferred replies.
+"""Stage 1 · SFT. I teach a base model the chat format on human-preferred replies.
 
 Loss only on the final assistant turn of each hh-rlhf "chosen" conversation.
 """
@@ -31,8 +31,8 @@ model = add_lora(model)
 opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=args.lr)
 log = Logger(str(RUNS / "logs" / "sft.jsonl"))
 
-# Keep only answers that fit whole: a cut answer loses its end-of-turn token
-# and teaches the model never to stop.
+# note to self: I keep only answers that fit whole. A cut answer loses its end-of-turn
+# token and teaches the model never to stop. RL rollouts then all run to the token cap.
 examples = []
 for ex in data:
     p, c = prompt_ids(tok, ex["prompt"]), answer_ids(tok, ex["prompt"], ex["chosen"])

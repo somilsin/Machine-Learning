@@ -1,8 +1,8 @@
-"""Data and reward helpers for the classic RLHF project.
+"""Data and reward helpers for my classic RLHF project.
 
 Human preferences: Anthropic/hh-rlhf (helpful-base). Each row has a chosen
 and a rejected transcript that share every turn except the last assistant
-reply. Verifiable rewards: openai/gsm8k, where the answer can be checked.
+reply. Verifiable rewards: openai/gsm8k, where I can check the answer.
 """
 import random
 import re
@@ -74,6 +74,8 @@ NUMBER = r"-?\d[\d,]*(?:\.\d+)?"
 
 def extract_answer(text):
     r"""Final number: after '####' if present, else inside \boxed{}, else the last number in the text."""
+    # note to self: Qwen2.5-Instruct writes \boxed{} and ignores my #### instruction. A strict
+    # extractor gave every sample 0 reward and every GRPO group went flat (zero gradient).
     for marker in ("####", r"\boxed{"):
         if marker in text:
             m = re.search(NUMBER, text.split(marker)[-1])

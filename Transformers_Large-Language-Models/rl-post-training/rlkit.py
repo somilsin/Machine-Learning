@@ -1,6 +1,6 @@
-"""Shared building blocks for both post-training projects.
+"""My shared building blocks for both post-training projects.
 
-Everything an interviewer may ask you to write by hand lives here:
+I keep everything I want to be able to write by hand in one place:
 per-token log-probs, group advantages, the GRPO loss with the k3 KL estimator
 and the DPO loss. Both projects import from this file.
 """
@@ -15,9 +15,9 @@ from peft import LoraConfig, get_peft_model
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-# bf16 needs an Ampere or newer GPU (compute capability 8+). On older cards such as
-# Colab's T4 the trained model stays in fp32 (fp16 training without a loss scaler
-# can underflow) and frozen models (judge, reward model, reference) run in fp16.
+# note to self: bf16 needs compute capability 8+ (Ampere or newer). Colab's T4 doesn't
+# have it. There I train in fp32 (fp16 training without a loss scaler can underflow)
+# and keep the frozen models (judge, reward model, reference) in fp16 to save memory.
 _BF16 = DEVICE == "cuda" and torch.cuda.get_device_capability()[0] >= 8
 if DEVICE == "cuda":
     TRAIN_DTYPE = torch.bfloat16 if _BF16 else torch.float32
@@ -57,7 +57,7 @@ def add_lora(model, r=16, alpha=32, task_type="CAUSAL_LM"):
 
 
 def save_merged(peft_model, tok, out_dir):
-    """Fold the LoRA update into the base weights so the next stage loads a plain model."""
+    """I fold the LoRA update into the base weights so the next stage loads a plain model."""
     merged = peft_model.merge_and_unload()
     merged.config.use_cache = True
     os.makedirs(out_dir, exist_ok=True)
@@ -77,7 +77,7 @@ def eos_ids(tok):
 # ---------------------------------------------------------------- chat formatting
 
 def prompt_ids(tok, messages):
-    """Token ids for a conversation that ends where the assistant should start writing."""
+    """Token ids for a conversation that stops right where the assistant should start writing."""
     if isinstance(messages, str):
         messages = [{"role": "user", "content": messages}]
     return list(tok.apply_chat_template(messages, add_generation_prompt=True, tokenize=True))
@@ -98,7 +98,7 @@ def answer_ids(tok, messages, answer):
 
 @torch.no_grad()
 def sample(model, tok, p_ids, n, max_new_tokens=128, temperature=1.0):
-    """n sampled completions for one prompt, each cut after its first end-of-turn token."""
+    """I draw n completions for one prompt and cut each one after its first end-of-turn token."""
     was_training = model.training
     model.eval()
     x = torch.tensor([p_ids], device=DEVICE)
@@ -132,6 +132,8 @@ def is_truncated(tok, completion):
 def pad_batch(prompts, completions, pad_id):
     """Right-padded prompt+completion batch.
 
+    note to self: this mask is what makes it "loss on the answer only".
+
     loss_mask[i, t] = 1 where position t predicts a completion token,
     so it lines up with token_logprobs() output (which drops the last position).
     """
@@ -148,7 +150,9 @@ def pad_batch(prompts, completions, pad_id):
 
 
 def token_logprobs(model, ids, attn):
-    """log pi(token_t+1 | tokens_<=t) for every position: shape [B, T-1]."""
+    """log pi(token t+1 | tokens up to t) at every position: shape [B, T-1]."""
+    # note to self: position t predicts token t+1. The labels are the ids shifted by one.
+    # logits - logsumexp is log_softmax without materialising a second vocab-sized tensor.
     logits = model(input_ids=ids, attention_mask=attn).logits[:, :-1].float()
     labels = ids[:, 1:]
     picked = logits.gather(-1, labels.unsqueeze(-1)).squeeze(-1)
@@ -158,7 +162,8 @@ def token_logprobs(model, ids, attn):
 # ---------------------------------------------------------------- losses
 
 def group_advantages(rewards, G, scale_std=True):
-    """GRPO baseline: compare each sample with the other samples for the same prompt."""
+    """GRPO's baseline: I compare each sample with the other samples for the same prompt."""
+    # note to self: this replaces PPO's value network. No critic to train or fit in memory.
     r = rewards.view(-1, G)
     adv = r - r.mean(1, keepdim=True)
     if scale_std:
@@ -167,11 +172,11 @@ def group_advantages(rewards, G, scale_std=True):
 
 
 def grpo_loss(logp, old_logp, ref_logp, adv, mask, eps=0.2, beta=0.04):
-    """Clipped policy-gradient loss plus k3 KL to the reference, averaged per sequence."""
+    """My clipped policy-gradient loss plus the k3 KL to the reference, averaged per sequence."""
     ratio = torch.exp(logp - old_logp)
     pg = -torch.min(ratio * adv, torch.clamp(ratio, 1 - eps, 1 + eps) * adv)
     d = ref_logp - logp
-    kl = torch.exp(d) - d - 1                       # k3 estimator: non-negative, low variance
+    kl = torch.exp(d) - d - 1                       # note to self: k3 estimator. never negative and lower variance than log(pi/pi_ref)
     per_tok = (pg + beta * kl) * mask
     lengths = mask.sum(1).clamp(min=1)
     loss = (per_tok.sum(1) / lengths).mean()
@@ -180,7 +185,8 @@ def grpo_loss(logp, old_logp, ref_logp, adv, mask, eps=0.2, beta=0.04):
 
 
 def dpo_loss(pi_w, pi_l, ref_w, ref_l, beta=0.1):
-    """Inputs are summed response log-probs, shape [B]."""
+    """I pass in summed response log-probs, shape [B]."""
+    # note to self: the implicit reward is beta * log(pi/pi_ref). The policy is its own reward model.
     logits = beta * ((pi_w - ref_w) - (pi_l - ref_l))
     loss = -F.logsigmoid(logits).mean()
     return loss, (logits > 0).float().mean().item(), (logits / beta).mean().item()
@@ -190,11 +196,12 @@ def dpo_loss(pi_w, pi_l, ref_w, ref_l, beta=0.1):
 
 def grpo_step(model, tok, opt, items, reward_fn, G=4, max_new_tokens=128, temperature=1.0,
               beta=0.04, eps=0.2, micro_bs=4, scale_std=True, max_grad_norm=1.0):
-    """Rollout -> reward -> group advantage -> one clipped policy-gradient update.
+    """One GRPO step: rollout -> reward -> group advantage -> one clipped policy-gradient update.
 
     items: list of dicts, each with "ids" (prompt token ids) plus whatever reward_fn needs.
     reward_fn(items_per_sample, completion_texts) -> list of floats.
-    The model must be a PEFT model: disabling the adapter gives the frozen reference policy.
+    note to self: the model has to be a PEFT model. Switching the adapter off gives me the
+    frozen reference policy for free (no second copy of the weights).
     """
     P, C, meta = [], [], []
     for it in items:
@@ -217,8 +224,8 @@ def grpo_step(model, tok, opt, items, reward_fn, G=4, max_new_tokens=128, temper
         logp = token_logprobs(model, ids, attn)
         with torch.no_grad(), model.disable_adapter():
             ref = token_logprobs(model, ids, attn)
-        # One update per rollout batch: the sampling policy equals the current one:
-        # old_logp = logp.detach() makes the ratio 1 in value while keeping its gradient.
+        # note to self: I do one update per rollout batch. The sampling policy IS the current one.
+        # old_logp = logp.detach() makes the ratio exactly 1 but it still carries the gradient.
         loss, kl = grpo_loss(logp, logp.detach(), ref, adv[sl].unsqueeze(1), mask, eps, beta)
         w = ids.shape[0] / N
         (loss * w).backward()

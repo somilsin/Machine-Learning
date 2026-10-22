@@ -1,9 +1,9 @@
-"""Stage 2 · reward model from human preferences (Bradley-Terry).
+"""Stage 2 · my reward model from human preferences (Bradley-Terry).
 
-Initialised from the SFT model with a fresh scalar head. Loss:
+I start from the SFT model with a fresh scalar head. Loss:
     -log sigmoid(r(chosen) - r(rejected))
-Report held-out pairwise accuracy. Expect well under 100%: human preferences
-are noisy and hh-rlhf pairs often differ only slightly.
+I report held-out pairwise accuracy. I expect well under 100%: human
+preferences are noisy and hh-rlhf pairs often differ only slightly.
 """
 import argparse
 import random
@@ -37,7 +37,7 @@ if tok.pad_token is None:
 model = AutoModelForSequenceClassification.from_pretrained(args.base, num_labels=1, dtype=TRAIN_DTYPE).to(DEVICE)
 model.config.pad_token_id = tok.pad_token_id
 model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
-model = add_lora(model, task_type="SEQ_CLS")          # the new score head is trained in full
+model = add_lora(model, task_type="SEQ_CLS")          # note to self: the new score head is trained in full
 opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=args.lr)
 log = Logger(str(RUNS / "logs" / "rm.jsonl"))
 
@@ -68,7 +68,7 @@ for epoch in range(args.epochs):
     for i in range(0, len(train) - args.bs + 1, args.bs):
         b = train[i:i + args.bs]
         rc, rr = rewards(b, "chosen"), rewards(b, "rejected")
-        loss = -F.logsigmoid(rc - rr).mean()
+        loss = -F.logsigmoid(rc - rr).mean()           # Bradley-Terry: chosen should outscore rejected
         opt.zero_grad(set_to_none=True)
         loss.backward()
         torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.requires_grad], 1.0)

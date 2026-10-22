@@ -1,8 +1,8 @@
-"""Stage 0 · supervised fine-tuning (the notebook's LoRA run, saved this time).
+"""Stage 0 · supervised fine-tuning. My LoRA run from 2_LLM_Finetuning.ipynb, saved this time.
 
-Same data and objective as 2_LLM_Finetuning.ipynb: loss only on the answer
-tokens. Differences: AdamW instead of Lion, batches of 4, the adapter is
-merged and saved so the RL stages can start from it.
+Same data and objective as that notebook: loss only on the answer tokens.
+What I changed: AdamW instead of Lion, batches of 4 and I merge and save the
+adapter so the RL stages can start from it.
 """
 import argparse
 import random
@@ -31,8 +31,8 @@ model = add_lora(model)
 opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=args.lr)
 log = Logger(str(RUNS / "logs" / "sft.jsonl"))
 
-# Keep only answers that fit whole: a cut answer loses its end-of-turn token
-# and teaches the model never to stop.
+# note to self: I keep only answers that fit whole. A cut answer loses its end-of-turn
+# token and teaches the model never to stop. RL rollouts then all run to the token cap.
 examples = []
 for ex in train:
     p, c = prompt_ids(tok, ex["instruction"]), answer_ids(tok, ex["instruction"], ex["response_style"])

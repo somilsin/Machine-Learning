@@ -1,8 +1,8 @@
-"""Stage 3 · evaluate every stage on the same held-out prompts with the same judge.
+"""Stage 3 · I score every stage on the same held-out prompts with the same judge.
 
-Controls as in the notebook: Dolly's plain answers are the negative control
-and the course's Yoda rewrites are the positive control. Each model's score
-only means something relative to those two rows.
+Controls as in my earlier notebook: Dolly's plain answers are the negative
+control and the course's Yoda rewrites are the positive control. A model's
+score only means something relative to those two rows.
 """
 import argparse
 import gc

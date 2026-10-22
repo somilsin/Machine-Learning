@@ -1,9 +1,9 @@
-"""Stage 1 · RLAIF preference data: the judge labels pairs instead of a human.
+"""Stage 1 · RLAIF preference data. My judge labels the pairs instead of a human.
 
-For each training instruction, sample K answers from the SFT model, score
+For each training instruction I sample K answers from the SFT model, score
 each with the two-rubric judge and keep (best, worst) as a preference pair
 when the judge separates them clearly. This is the Constitutional AI / RLAIF
-move: AI feedback replaces human preference labels.
+idea: AI feedback replaces human preference labels.
 """
 import argparse
 import random

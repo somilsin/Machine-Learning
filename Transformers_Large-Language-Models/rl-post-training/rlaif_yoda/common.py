@@ -1,12 +1,12 @@
-"""Data and judge for the Yoda RLAIF project.
+"""Data and judge for my Yoda RLAIF project.
 
 The data is the same as in 2_LLM_Finetuning.ipynb: Dolly instructions paired
 with the MIT 6.S191 Yoda-style rewrites, split 80/20 with seed 7. The test
-prompts match the notebook.
+prompts match that notebook.
 
-The judge is the notebook's LLM-as-a-judge turned into a reward model. Two
-rubrics instead of one: a style score alone is easy to hack (say something
-Yoda-like and ignore the question). A second rubric checks the answer.
+The judge is my LLM-as-a-judge from that notebook turned into a reward model.
+I use two rubrics instead of one. A style score alone is easy to hack (say
+something Yoda-like and ignore the question). The second rubric checks the answer.
 """
 import importlib.util
 import json
@@ -25,7 +25,7 @@ from rlkit import DEVICE, DTYPE  # noqa: E402
 
 RUNS = Path(__file__).resolve().parent / "runs"
 
-# Written for this project (not a film quote) so the rubric carries no copied text.
+# I wrote this example myself (not a film quote) so the rubric carries no copied text.
 YODA_EXAMPLE = ("Patience you must have, young one. Hard the path is. Walk it you will. "
                 "Ask the right question first, you must. Then the answer, find it you shall.")
 
@@ -61,7 +61,9 @@ def yoda_split(seed=7):
 class LocalJudge:
     """Scores 0-1 by reading the judge's probability for each digit 0-9.
 
-    Using the expected digit instead of parsing generated text gives a smooth
+    note to self:
+
+    the expected digit instead of parsing generated text gives a smooth
     reward with one forward pass and never fails to parse.
     """
 
@@ -97,7 +99,7 @@ class LocalJudge:
 
 
 class OpenRouterJudge:
-    """Same rubrics through OpenRouter (the notebook used google/gemini-2.5-flash). Costs money per call."""
+    """Same rubrics through OpenRouter (my earlier notebook used google/gemini-2.5-flash). Costs money per call."""
 
     def __init__(self, model_id="google/gemini-2.5-flash", max_chars=700):
         import requests

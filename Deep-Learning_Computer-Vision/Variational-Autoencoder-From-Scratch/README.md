@@ -1,7 +1,8 @@
 <div align="center">
 
-<h1>🌀 Variational Autoencoder From Scratch</h1>
-<h3><code>One digit, one latent space, one evidence lower bound</code></h3>
+# 🌀 Variational Autoencoder From Scratch
+
+### One digit, one latent space, one evidence lower bound
 
 <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=900&lines=One%20digit%2C%20one%20latent%20space%2C%20one%20evidence%20lower%20bound;Learn+it.+Build+it.+Explain+it." alt="One digit, one latent space, one evidence lower bound" />
 
@@ -24,11 +25,24 @@
 
 </div>
 
-<br>
+---
+
+## 📖 About This Repository
 
 This is the code behind my [VAE explainer on YouTube](https://www.youtube.com/watch?v=Dd-k03EHi2s). It trains a VAE on handwritten digits, then saves reconstructions, new samples and a view of the latent space.
 
-## 🧠 The code
+---
+
+## 🚀 Key Implementations
+
+* Gaussian encoder that outputs a mean and a log variance per latent dimension
+* Reparameterization trick so gradients reach the encoder through the random sample
+* Negative ELBO loss: Bernoulli reconstruction term plus the closed-form KL to N(0, I)
+* Generation from the prior, a decoded 2D latent manifold and a latent scatter of the test set
+
+---
+
+## 🎓 Project Guide
 
 ### Files
 
@@ -48,7 +62,19 @@ This is the code behind my [VAE explainer on YouTube](https://www.youtube.com/wa
 | One latent sample per image, one Adam step on encoder and decoder together | `main` training loop | The training loop · Why not alternate? |
 | Draw z from N(0, I) and decode | `save_figures` | Generate something new |
 
-## ⚙️ Run it
+---
+
+## 🛠️ Tech Stack
+
+<p align="center">
+<img src="https://skillicons.dev/icons?i=python,pytorch&theme=dark" alt="Python, PyTorch" />
+</p>
+
+`Python` · `PyTorch` · `torchvision` · `Matplotlib`
+
+---
+
+## ⚙️ Getting Started
 
 ```bash
 git clone https://github.com/somilsin/Machine-Learning.git
@@ -59,7 +85,9 @@ python vae.py --epochs 10 --latent-dim 2 --out outputs
 
 The script downloads MNIST into a local `data` folder and binarizes every pixel at 0.5 so the Bernoulli likelihood is a literal model choice. It uses CUDA when available and also supports CPU training. Two latent dimensions keep the latent space drawable; use `--latent-dim` to change the number of latent dimensions.
 
-## 📊 My run
+---
+
+## 📊 Results and Notes
 
 ### Loss conventions
 
@@ -85,7 +113,9 @@ All values are nats per image; the full history is in [outputs/history.csv](outp
 | :---: | :---: |
 | <img src="outputs/reconstructions.png" width="380" alt="Reconstructions" /> | <img src="outputs/prior_mean_images.png" width="380" alt="Prior mean images" /> |
 
-## 📚 References
+---
+
+## 📚 References and Credit
 
 * Kingma and Welling (2013), [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114)
 * Kingma and Welling (2019), [An Introduction to Variational Autoencoders](https://arxiv.org/abs/1906.02691)
@@ -93,3 +123,21 @@ All values are nats per image; the full history is in [outputs/history.csv](outp
 * CMU 10-423/623 Generative AI, Lecture 9 by Matt Gormley, [VAEs + PGMs](https://www.mlcourse.org/10423/), which I used as a study reference for the graphical model view and the derivation
 
 The code, notes and lecture visuals are my own.
+
+---
+
+<div align="center">
+
+### Get In Touch
+
+If you'd like to chat about the work, you can reach me on [LinkedIn](https://linkedin.com/in/somil-singh).
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/somil-singh)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:somils@andrew.cmu.edu)
+[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Skywalkerlyzv)
+[![Medium](https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@thesomilsinghofficial)
+[![Substack](https://img.shields.io/badge/Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white)](https://thesomilsingh.substack.com/)
+
+*Thanks for stopping by!*
+
+</div>

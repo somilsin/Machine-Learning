@@ -1,7 +1,8 @@
 <div align="center">
 
-<h1>🤖 Transformers and Large Language Models</h1>
-<h3><code>Sequence prediction, music generation, language adaptation and RL post-training</code></h3>
+# 🤖 Transformers and Large Language Models
+
+### Sequence prediction, music generation, language adaptation and RL post-training
 
 <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=900&lines=Sequence%20prediction%2C%20music%20generation%20and%20language%20adaptation;RLAIF%2C%20RLHF%20and%20verifiable%20rewards;Learn+it.+Build+it.+Explain+it." alt="Sequence prediction, music generation, language adaptation and RL post-training" />
 
@@ -24,17 +25,42 @@
 
 </div>
 
-<br>
+---
+
+## 📖 About This Repository
 
 I use these notebooks to explore how models learn sequences, adapt to a style and learn from feedback. They cover music generation, LoRA and RL post-training, with the generated outputs kept in the notebooks.
 
-## 📂 Notebooks
+---
+
+## 🚀 Key Implementations
+
+* Music generation with a recurrent sequence model
+* Language model adaptation with low rank adapters
+* Saved text and audio from clearly labelled local runs
+* RL post-training: an LLM judge turned into a reward for RLAIF (DPO and GRPO) plus classic RLHF with a reward model and a verifiable GSM8K reward, executed on a Colab T4 with saved outputs
+
+---
+
+## 🎓 Project Guide
 
 1. [Music generation](1_Music_Generation.ipynb) covers character encoding and shifted sequence targets then LSTM training and generation. Generated ABC text is displayed directly.
 2. [Language model adaptation](2_LLM_Finetuning.ipynb) covers chat formatting and tokenization then LoRA training and held out evaluation using LiquidAI LFM2 with 1.2 billion parameters.
 3. [RL post-training](3_RL_Post_Training.ipynb) ([open in Colab](https://colab.research.google.com/github/somilsin/Machine-Learning/blob/main/Transformers_Large-Language-Models/3_RL_Post_Training.ipynb)) turns the style judge from the second notebook into a reward. It covers judge validation, judge-labelled DPO and online GRPO then classic RLHF on hh-rlhf with a Bradley-Terry reward model and GRPO against a GSM8K answer checker. The training loops are plain PyTorch and the saved outputs come from an end to end Colab T4 run using the quick settings.
 
-## ⚙️ Run them
+---
+
+## 🛠️ Tech Stack
+
+<p align="center">
+<img src="https://skillicons.dev/icons?i=python,pytorch&theme=dark" alt="Python, PyTorch" />
+</p>
+
+`Python` · `PyTorch` · `Hugging Face Transformers` · `PEFT` · `Datasets`
+
+---
+
+## ⚙️ Getting Started
 
 ```bash
 git clone https://github.com/somilsin/Machine-Learning.git
@@ -52,7 +78,9 @@ The RL post-training notebook runs on its own in Colab ([open in Colab](https://
 
 The judge in the second notebook requires OPENROUTER_API_KEY and tracing requires OPIK_API_KEY. I read credentials from environment variables. Those services are optional and the notebook does not invent scores when they are unavailable.
 
-## 📊 Results and notes
+---
+
+## 📊 Results and Notes
 
 ### What I look at
 
@@ -74,6 +102,26 @@ On 22 October 2026 I executed the RL post-training notebook end to end on a Cola
 
 The local runs use smaller settings so I treat them as working experiments rather than comparisons of converged models. Text and audio outputs are saved in the matching notebooks.
 
-## 📚 References
+---
+
+## 📚 References and Credit
 
 The exercises and helpers come from [MIT Introduction to Deep Learning](http://introtodeeplearning.com). I retain the original copyright notices. The repository license remains in [LICENSE](LICENSE).
+
+---
+
+<div align="center">
+
+### Get In Touch
+
+If you'd like to chat about the work, you can reach me on [LinkedIn](https://linkedin.com/in/somil-singh).
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/somil-singh)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:somils@andrew.cmu.edu)
+[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Skywalkerlyzv)
+[![Medium](https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@thesomilsinghofficial)
+[![Substack](https://img.shields.io/badge/Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white)](https://thesomilsingh.substack.com/)
+
+*Thanks for stopping by!*
+
+</div>

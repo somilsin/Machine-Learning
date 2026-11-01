@@ -1,7 +1,8 @@
 <div align="center">
 
-<h1>📐 TensorTonic Machine Learning Solutions</h1>
-<h3><code>Small implementations that make the mathematics visible</code></h3>
+# 📐 TensorTonic Machine Learning Solutions
+
+### Small implementations that make the mathematics visible
 
 <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=900&lines=Small%20implementations%20that%20make%20the%20mathematics%20visible;Learn+it.+Build+it.+Explain+it." alt="Small implementations that make the mathematics visible" />
 
@@ -22,11 +23,23 @@
 
 </div>
 
-<br>
+---
+
+## 📖 About This Repository
 
 These are my solutions to problems on [TensorTonic](https://www.tensortonic.com). I use them to practise the maths behind ML through small Python implementations, with the problem notes beside each solution.
 
-## 🧮 Solutions
+---
+
+## 🚀 Key Implementations
+
+* Vector operations and matrix transpose
+* Probability and expected value
+* Descriptive statistics and sample variance
+
+---
+
+## 🎓 Project Guide
 
 <!-- tensortonic:start -->
 ### Somil Singh's TensorTonic Solutions
@@ -49,3 +62,48 @@ Verified machine learning implementations completed on [TensorTonic](https://www
 
 View my verified ML profile: [TensorTonic profile](https://www.tensortonic.com/profile/thesomilsinghofficial)
 <!-- tensortonic:end -->
+
+---
+
+## 🛠️ Tech Stack
+
+<p align="center">
+<img src="https://skillicons.dev/icons?i=python&theme=dark" alt="Python" />
+</p>
+
+`Python`
+
+---
+
+## ⚙️ Getting Started
+
+```bash
+git clone https://github.com/somilsin/Machine-Learning.git
+cd Machine-Learning/TensorTonic-Solutions
+```
+
+Open a solution to see the Python implementation alongside its problem notes.
+
+---
+
+## 📚 References and Credit
+
+The problems and verification badge come from [TensorTonic](https://www.tensortonic.com).
+
+---
+
+<div align="center">
+
+### Get In Touch
+
+If you'd like to chat about the work, you can reach me on [LinkedIn](https://linkedin.com/in/somil-singh).
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/somil-singh)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:somils@andrew.cmu.edu)
+[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Skywalkerlyzv)
+[![Medium](https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@thesomilsinghofficial)
+[![Substack](https://img.shields.io/badge/Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white)](https://thesomilsingh.substack.com/)
+
+*Thanks for stopping by!*
+
+</div>

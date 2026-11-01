@@ -1,7 +1,8 @@
 <div align="center">
 
-<h1>👁️ Deep Learning and Computer Vision</h1>
-<h3><code>Image classification, adaptive sampling and visible gradients</code></h3>
+# 👁️ Deep Learning and Computer Vision
+
+### Image classification, adaptive sampling and visible gradients
 
 <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=900&lines=Image%20classification%2C%20adaptive%20sampling%20and%20visible%20gradients;Learn+it.+Build+it.+Explain+it." alt="Image classification, adaptive sampling and visible gradients" />
 
@@ -24,20 +25,45 @@
 
 </div>
 
-<br>
+---
+
+## 📖 About This Repository
 
 I use these notebooks to work through how neural networks learn from images. I started with handwritten digits, then explored face classification, adaptive sampling and generative models.
 
 The vision notebooks are my adaptations of MIT Introduction to Deep Learning exercises. The NumPy engine is where I write out the layers and gradients directly.
 
-## 📂 Experiments
+---
+
+## 🚀 Key Implementations
+
+* Dense and convolutional digit classifiers
+* Face classification with adaptive sampling
+* A NumPy neural network engine with manual gradients
+* A variational autoencoder that generates new digits from a 2D latent space
+
+---
+
+## 🎓 Project Guide
 
 1. [MNIST classification](1_MNIST_Digit_Classifications.ipynb) compares a dense baseline with a CNN. I inspect image shapes then train both models and display their predictions.
 2. [Facial detection and debiasing](2_Facial_Detection_Debiasing.ipynb) compares a standard CNN with a DB VAE. I keep the distinction between mean predicted probability and classification accuracy explicit.
 3. [My NumPy neural network engine](Neural-Network-Engine-From-Scratch/README.md) contains linear layers and activations with manual gradients plus losses and SGD with momentum.
 4. [My variational autoencoder from scratch](Variational-Autoencoder-From-Scratch/README.md) is the companion code for my VAE lecture on YouTube. I train it on binarized digits, then sample new digits from the prior and decode the whole 2D latent space.
 
-## ⚙️ Run the notebooks
+---
+
+## 🛠️ Tech Stack
+
+<p align="center">
+<img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow&theme=dark" alt="Python, PyTorch, TensorFlow" />
+</p>
+
+`Python` · `PyTorch` · `TensorFlow`
+
+---
+
+## ⚙️ Getting Started
 
 ```bash
 git clone https://github.com/somilsin/Machine-Learning.git
@@ -62,7 +88,9 @@ python -m pip install -r Variational-Autoencoder-From-Scratch/requirements.txt
 python Variational-Autoencoder-From-Scratch/vae.py --epochs 10 --latent-dim 2
 ```
 
-## 📊 Results and notes
+---
+
+## 📊 Results and Notes
 
 ### Training choices
 
@@ -82,8 +110,28 @@ The NumPy engine passed finite difference gradient checks and learned the four s
 
 On 8 October 2026 I trained the variational autoencoder for 10 epochs on my laptop CPU in 2 minutes 16 seconds. It reached a test loss of 152.60 nats per image, made of 146.70 reconstruction and 5.90 KL. Its folder keeps the loss history and the generated figures.
 
-## 📚 References
+---
+
+## 📚 References and Credit
 
 The notebook exercises and helpers come from [MIT Introduction to Deep Learning](http://introtodeeplearning.com). The source credit is retained in the notebooks.
 
 The variational autoencoder follows Kingma and Welling's [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114). Its references are listed in its own README.
+
+---
+
+<div align="center">
+
+### Get In Touch
+
+If you'd like to chat about the work, you can reach me on [LinkedIn](https://linkedin.com/in/somil-singh).
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/somil-singh)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:somils@andrew.cmu.edu)
+[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Skywalkerlyzv)
+[![Medium](https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@thesomilsinghofficial)
+[![Substack](https://img.shields.io/badge/Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white)](https://thesomilsingh.substack.com/)
+
+*Thanks for stopping by!*
+
+</div>

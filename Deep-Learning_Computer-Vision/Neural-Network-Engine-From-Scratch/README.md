@@ -1,7 +1,8 @@
 <div align="center">
 
-<h1>🧠 NumPy Neural Network Engine</h1>
-<h3><code>Forward passes, gradients and optimization from first principles</code></h3>
+# 🧠 NumPy Neural Network Engine
+
+### Forward passes, gradients and optimization from first principles
 
 <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=900&lines=Forward%20passes%2C%20gradients%20and%20optimization%20from%20first%20principles;Learn+it.+Build+it.+Explain+it." alt="Forward passes, gradients and optimization from first principles" />
 
@@ -22,11 +23,23 @@
 
 </div>
 
-<br>
+---
+
+## 📖 About This Repository
 
 I built this to follow a neural network from the forward pass to the weight update. The layers and gradients are written out directly with NumPy and SciPy.
 
-## 🧠 How it works
+---
+
+## 🚀 Key Implementations
+
+* Linear layers and activations with manual gradients
+* Loss functions and stochastic gradient descent with momentum
+* Batch normalization and multilayer perceptron examples
+
+---
+
+## 🎓 Project Guide
 
 ### Layers and gradients
 
@@ -50,7 +63,19 @@ The current SGD implementation updates linear layers. It does not automatically 
 
 The public MLP examples retain ReLU at the output for compatibility with their original design. For a general classification model I would normally use an unrestricted final linear layer for logits.
 
-## ⚙️ Try it
+---
+
+## 🛠️ Tech Stack
+
+<p align="center">
+<img src="https://skillicons.dev/icons?i=python&theme=dark" alt="Python" />
+</p>
+
+`Python`
+
+---
+
+## ⚙️ Getting Started
 
 From this folder, install the dependencies and try this example:
 
@@ -92,3 +117,33 @@ Accuracy: 100%
 ```
 
 This is a tiny training example with evaluation on the same four samples. It checks that the engine learns rather than measuring generalisation.
+
+---
+
+## 📊 Results and Notes
+
+The finite difference checks reached a maximum error of about 1.1 × 10⁻¹⁰. The four sample demo reached 100% training accuracy as its loss fell from 0.468641 to 0.000260.
+
+---
+
+## 📚 References and Credit
+
+NumPy handles the arrays and SciPy supplies the numerical helpers. The layers and backward passes are written in the project.
+
+---
+
+<div align="center">
+
+### Get In Touch
+
+If you'd like to chat about the work, you can reach me on [LinkedIn](https://linkedin.com/in/somil-singh).
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/somil-singh)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:somils@andrew.cmu.edu)
+[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Skywalkerlyzv)
+[![Medium](https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@thesomilsinghofficial)
+[![Substack](https://img.shields.io/badge/Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white)](https://thesomilsingh.substack.com/)
+
+*Thanks for stopping by!*
+
+</div>

@@ -1,4 +1,3 @@
-<!-- Shared decorative layout inspired by my original vision README and profile README. -->
 <div align="center">
 
 <h1>🤖 Transformers and Large Language Models</h1>
@@ -21,66 +20,21 @@
 [![Medium](https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@thesomilsinghofficial)
 [![Substack](https://img.shields.io/badge/Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white)](https://thesomilsingh.substack.com/)
 
-[Open this project](https://github.com/somilsin/Machine-Learning/tree/main/Transformers_Large-Language-Models) · [My GitHub](https://github.com/somilsin) · [My portfolio](https://somilsin.github.io/Artificial-Intelligence/portfolio/)
+[Open this project](https://github.com/somilsin/Machine-Learning/tree/main/Transformers_Large-Language-Models) · [My GitHub](https://github.com/somilsin) · [Main Portfolio](https://somilsin.github.io/Artificial-Intelligence/portfolio/)
 
 </div>
 
 <br>
 
-## 📖 About This Repository
+I use these notebooks to explore how models learn sequences, adapt to a style and learn from feedback. They cover music generation, LoRA and RL post-training, with the generated outputs kept in the notebooks.
 
----
-
-I study sequence prediction through music notation generation, language model adaptation and RL post-training. I use these notebooks to understand the training choices and inspect the generated outputs.
-
-<br>
-
-## 🚀 Key Implementations
-
----
-
-* Music generation with a recurrent sequence model
-* Language model adaptation with low rank adapters
-* Saved text and audio from clearly labelled local runs
-* RL post-training: an LLM judge turned into a reward for RLAIF (DPO and GRPO) plus classic RLHF with a reward model and a verifiable GSM8K reward, executed on a Colab T4 with saved outputs
-
-<br>
-
-## 🎓 Project Guide
-
----
-
-### Overview
-
-I use this repository to study sequence prediction, language model adaptation and RL post-training. The first notebook learns ABC music notation with an LSTM. The second adapts a pretrained language model with LoRA and includes an optional style judge. The third turns that judge into a reward model for RLAIF and then runs classic RLHF with a learned reward model and a rule-based GSM8K reward.
-
-The first two notebooks are my working adaptations of MIT Introduction to Deep Learning labs and the third builds on the second. I keep the course copyright and data helper credit. I explain the pipeline in my own notes and distinguish model training from the use of pretrained weights.
-
-### What is here
+## 📂 Notebooks
 
 1. [Music generation](1_Music_Generation.ipynb) covers character encoding and shifted sequence targets then LSTM training and generation. Generated ABC text is displayed directly.
 2. [Language model adaptation](2_LLM_Finetuning.ipynb) covers chat formatting and tokenization then LoRA training and held out evaluation using LiquidAI LFM2 with 1.2 billion parameters.
-3. [RL post-training](3_RL_Post_Training.ipynb) ([open in Colab](https://colab.research.google.com/github/somilsin/Machine-Learning/blob/main/Transformers_Large-Language-Models/3_RL_Post_Training.ipynb)) turns the style judge from the second notebook into a reward. It covers judge validation, judge-labelled DPO and online GRPO then classic RLHF on hh-rlhf with a Bradley-Terry reward model and GRPO against a GSM8K answer checker. The training loops are plain PyTorch and the saved outputs come from a full Colab T4 run.
+3. [RL post-training](3_RL_Post_Training.ipynb) ([open in Colab](https://colab.research.google.com/github/somilsin/Machine-Learning/blob/main/Transformers_Large-Language-Models/3_RL_Post_Training.ipynb)) turns the style judge from the second notebook into a reward. It covers judge validation, judge-labelled DPO and online GRPO then classic RLHF on hh-rlhf with a Bradley-Terry reward model and GRPO against a GSM8K answer checker. The training loops are plain PyTorch and the saved outputs come from an end to end Colab T4 run using the quick settings.
 
-<br>
-
-## 🛠️ Tech Stack
-
----
-
-<p align="center">
-<img src="https://skillicons.dev/icons?i=python,pytorch&theme=dark" alt="Python, PyTorch" />
-</p>
-
-`Python` · `PyTorch` · `Hugging Face Transformers` · `PEFT` · `Datasets`
-
-<br>
-
-## ⚙️ Getting Started
-
----
-
-### How I run it
+## ⚙️ Run them
 
 ```bash
 git clone https://github.com/somilsin/Machine-Learning.git
@@ -98,13 +52,9 @@ The RL post-training notebook runs on its own in Colab ([open in Colab](https://
 
 The judge in the second notebook requires OPENROUTER_API_KEY and tracing requires OPIK_API_KEY. I read credentials from environment variables. Those services are optional and the notebook does not invent scores when they are unavailable.
 
-<br>
+## 📊 Results and notes
 
-## 📝 My Notes and Results
-
----
-
-### My notes on interpretation
+### What I look at
 
 The LSTM loss measures prediction of the next character rather than how pleasant a tune sounds. I inspect complete generated songs and would test on held out songs before comparing settings.
 
@@ -112,7 +62,7 @@ LoRA updates a small set of adapter parameters while the base model stays frozen
 
 In the RL notebook the judge is the reward model so I validate it on controls before training on it. DPO moved style the most but lowered the probability of the chosen answers too: its margin grew mainly by pushing rejected answers down. GRPO against the hh-rlhf reward model won without getting longer. On GSM8K most rollouts were cut off before the final number so RL gave no gain at the quick settings.
 
-### Execution record
+### My runs
 
 On 3 October 2026 I executed both notebooks on an NVIDIA RTX 3050 Ti laptop GPU with 4 GB of memory.
 
@@ -122,32 +72,8 @@ For language adaptation I used LiquidAI LFM2 350M with a context length of 256 t
 
 On 22 October 2026 I executed the RL post-training notebook end to end on a Colab Tesla T4 with `QUICK = True`. The judge separated Yoda rewrites from plain answers by +0.20 on style. Held-out style scores were 0.30 for the base model, 0.35 after SFT, 0.45 after DPO and 0.39 after GRPO. The hh-rlhf reward model reached 64.3% held-out pairwise accuracy (54.0% before training) and GRPO against it won 70% of comparisons with SFT. GSM8K accuracy went from 43% to 42%, which is within noise at 100 questions. My notes on each result are at the end of the notebook.
 
-These smaller runs demonstrate execution rather than convergence at the full settings. Generated responses are saved in the notebook. External judge scoring and tracing were skipped because the service keys were not configured. No judge scores were invented.
+The local runs use smaller settings so I treat them as working experiments rather than comparisons of converged models. Text and audio outputs are saved in the matching notebooks.
 
-<br>
-
-## 📚 References and Credit
-
----
-
-### Reference and license
+## 📚 References
 
 The exercises and helpers come from [MIT Introduction to Deep Learning](http://introtodeeplearning.com). I retain the original copyright notices. The repository license remains in [LICENSE](LICENSE).
-
-<br>
-
-<div align="center">
-
-### Get In Touch
-
-I share my learning and projects here. Connect with me on [LinkedIn](https://linkedin.com/in/somil-singh) or explore [my portfolio](https://somilsin.github.io/Artificial-Intelligence/portfolio/).
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/somil-singh)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:somils@andrew.cmu.edu)
-[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Skywalkerlyzv)
-[![Medium](https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@thesomilsinghofficial)
-[![Substack](https://img.shields.io/badge/Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white)](https://thesomilsingh.substack.com/)
-
-*Thanks for stopping by!*
-
-</div>

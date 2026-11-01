@@ -1,4 +1,3 @@
-<!-- Shared decorative layout inspired by my original vision README and profile README. -->
 <div align="center">
 
 <h1>📐 TensorTonic Machine Learning Solutions</h1>
@@ -19,45 +18,15 @@
 [![Medium](https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@thesomilsinghofficial)
 [![Substack](https://img.shields.io/badge/Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white)](https://thesomilsingh.substack.com/)
 
-[Open this project](https://github.com/somilsin/Machine-Learning/tree/main/TensorTonic-Solutions) · [My GitHub](https://github.com/somilsin) · [My portfolio](https://somilsin.github.io/Artificial-Intelligence/portfolio/)
+[Open this project](https://github.com/somilsin/Machine-Learning/tree/main/TensorTonic-Solutions) · [My GitHub](https://github.com/somilsin) · [Main Portfolio](https://somilsin.github.io/Artificial-Intelligence/portfolio/)
 
 </div>
 
 <br>
 
-## 📖 About This Repository
+These are my solutions to problems on [TensorTonic](https://www.tensortonic.com). I use them to practise the maths behind ML through small Python implementations, with the problem notes beside each solution.
 
----
-
-I practice core machine learning mathematics through small Python implementations. I keep the problem notes beside each solution so I can revisit the reasoning.
-
-<br>
-
-## 🚀 Key Implementations
-
----
-
-* Vector operations and matrix transpose
-* Probability and expected value
-* Descriptive statistics and sample variance
-
-<br>
-
-## 🎓 Project Guide
-
----
-
-### Overview
-
-Welcome to my TensorTonic solutions repository!
-
-Here you'll find my solutions to various machine learning and deep learning problems from [TensorTonic](https://tensortonic.com).
-
-### What is TensorTonic?
-
-TensorTonic is a platform where you can implement core algorithms of Machine Learning from scratch.
-
-This folder contains my personal solutions to these problems. I moved the source into this Machine Learning category. New platform sync needs to target this repository and the TensorTonic Solutions folder.
+## 🧮 Solutions
 
 <!-- tensortonic:start -->
 ### Somil Singh's TensorTonic Solutions
@@ -80,62 +49,3 @@ Verified machine learning implementations completed on [TensorTonic](https://www
 
 View my verified ML profile: [TensorTonic profile](https://www.tensortonic.com/profile/thesomilsinghofficial)
 <!-- tensortonic:end -->
-
-<br>
-
-## 🛠️ Tech Stack
-
----
-
-<p align="center">
-<img src="https://skillicons.dev/icons?i=python&theme=dark" alt="Python" />
-</p>
-
-`Python`
-
-<br>
-
-## ⚙️ Getting Started
-
----
-
-```bash
-git clone https://github.com/somilsin/Machine-Learning.git
-cd Machine-Learning/TensorTonic-Solutions
-```
-
-I read the project notes and dependency files before choosing its runtime.
-
-<br>
-
-## 📝 My Notes and Results
-
----
-
-I use this folder to revisit the implementation choices and explain what I learned. The source is preserved here; I make execution claims only where I have recorded the outputs.
-
-<br>
-
-## 📚 References and Credit
-
----
-
-I retain the source context and any existing licenses with the project. The category move changes the location of the files rather than their ownership.
-
-<br>
-
-<div align="center">
-
-### Get In Touch
-
-I share my learning and projects here. Connect with me on [LinkedIn](https://linkedin.com/in/somil-singh) or explore [my portfolio](https://somilsin.github.io/Artificial-Intelligence/portfolio/).
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/somil-singh)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:somils@andrew.cmu.edu)
-[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Skywalkerlyzv)
-[![Medium](https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@thesomilsinghofficial)
-[![Substack](https://img.shields.io/badge/Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white)](https://thesomilsingh.substack.com/)
-
-*Thanks for stopping by!*
-
-</div>

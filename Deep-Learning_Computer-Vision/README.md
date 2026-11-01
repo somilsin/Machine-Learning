@@ -1,4 +1,3 @@
-<!-- Shared decorative layout inspired by my original vision README and profile README. -->
 <div align="center">
 
 <h1>👁️ Deep Learning and Computer Vision</h1>
@@ -21,67 +20,24 @@
 [![Medium](https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@thesomilsinghofficial)
 [![Substack](https://img.shields.io/badge/Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white)](https://thesomilsingh.substack.com/)
 
-[Open this project](https://github.com/somilsin/Machine-Learning/tree/main/Deep-Learning_Computer-Vision) · [My GitHub](https://github.com/somilsin) · [My portfolio](https://somilsin.github.io/Artificial-Intelligence/portfolio/)
+[Open this project](https://github.com/somilsin/Machine-Learning/tree/main/Deep-Learning_Computer-Vision) · [My GitHub](https://github.com/somilsin) · [Main Portfolio](https://somilsin.github.io/Artificial-Intelligence/portfolio/)
 
 </div>
 
 <br>
 
-## 📖 About This Repository
+I use these notebooks to work through how neural networks learn from images. I started with handwritten digits, then explored face classification, adaptive sampling and generative models.
 
----
+The vision notebooks are my adaptations of MIT Introduction to Deep Learning exercises. The NumPy engine is where I write out the layers and gradients directly.
 
-I study how neural networks learn from images through digit classification and face classification. I also maintain a NumPy engine where the layers and gradients are visible.
-
-<br>
-
-## 🚀 Key Implementations
-
----
-
-* Dense and convolutional digit classifiers
-* Face classification with adaptive sampling
-* A NumPy neural network engine with manual gradients
-* A variational autoencoder that generates new digits from a 2D latent space
-
-<br>
-
-## 🎓 Project Guide
-
----
-
-### Overview
-
-I use this repository to understand how a neural network learns from images. I start with handwritten digits then explore face classification and adaptive sampling. I also keep a small NumPy engine where the forward passes and gradients are visible in the code.
-
-The vision notebooks are my adaptations of MIT Introduction to Deep Learning exercises. I retain the course credit and explain the choices in my own notes. The NumPy engine implements its layers directly rather than using an automatic differentiation framework.
-
-### What is here
+## 📂 Experiments
 
 1. [MNIST classification](1_MNIST_Digit_Classifications.ipynb) compares a dense baseline with a CNN. I inspect image shapes then train both models and display their predictions.
 2. [Facial detection and debiasing](2_Facial_Detection_Debiasing.ipynb) compares a standard CNN with a DB VAE. I keep the distinction between mean predicted probability and classification accuracy explicit.
 3. [My NumPy neural network engine](Neural-Network-Engine-From-Scratch/README.md) contains linear layers and activations with manual gradients plus losses and SGD with momentum.
 4. [My variational autoencoder from scratch](Variational-Autoencoder-From-Scratch/README.md) is the companion code for my VAE lecture on YouTube. I train it on binarized digits, then sample new digits from the prior and decode the whole 2D latent space.
 
-<br>
-
-## 🛠️ Tech Stack
-
----
-
-<p align="center">
-<img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow&theme=dark" alt="Python, PyTorch, TensorFlow" />
-</p>
-
-`Python` · `PyTorch` · `TensorFlow`
-
-<br>
-
-## ⚙️ Getting Started
-
----
-
-### How I run it
+## ⚙️ Run the notebooks
 
 ```bash
 git clone https://github.com/somilsin/Machine-Learning.git
@@ -106,19 +62,15 @@ python -m pip install -r Variational-Autoencoder-From-Scratch/requirements.txt
 python Variational-Autoencoder-From-Scratch/vae.py --epochs 10 --latent-dim 2
 ```
 
-<br>
+## 📊 Results and notes
 
-## 📝 My Notes and Results
-
----
-
-### My notes on the experiments
+### Training choices
 
 I pass raw logits into cross entropy and apply softmax only when displaying probabilities. I evaluate with gradients disabled and put models in evaluation mode so batch statistics are handled consistently.
 
 For facial detection I treat the course demographic comparison as a limited diagnostic. I would need more held out examples and thresholded error measurements before making a broader fairness claim.
 
-### Execution record
+### My runs
 
 On 3 October 2026 I executed both notebooks on an NVIDIA RTX 3050 Ti laptop GPU with 4 GB of memory.
 
@@ -130,32 +82,8 @@ The NumPy engine passed finite difference gradient checks and learned the four s
 
 On 8 October 2026 I trained the variational autoencoder for 10 epochs on my laptop CPU in 2 minutes 16 seconds. It reached a test loss of 152.60 nats per image, made of 146.70 reconstruction and 5.90 KL. Its folder keeps the loss history and the generated figures.
 
-<br>
-
-## 📚 References and Credit
-
----
-
-### Course reference
+## 📚 References
 
 The notebook exercises and helpers come from [MIT Introduction to Deep Learning](http://introtodeeplearning.com). The source credit is retained in the notebooks.
 
 The variational autoencoder follows Kingma and Welling's [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114). Its references are listed in its own README.
-
-<br>
-
-<div align="center">
-
-### Get In Touch
-
-I share my learning and projects here. Connect with me on [LinkedIn](https://linkedin.com/in/somil-singh) or explore [my portfolio](https://somilsin.github.io/Artificial-Intelligence/portfolio/).
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/somil-singh)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:somils@andrew.cmu.edu)
-[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Skywalkerlyzv)
-[![Medium](https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@thesomilsinghofficial)
-[![Substack](https://img.shields.io/badge/Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white)](https://thesomilsingh.substack.com/)
-
-*Thanks for stopping by!*
-
-</div>
